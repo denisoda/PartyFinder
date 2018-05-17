@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using GoodNight.Models;
 
 namespace GoodNight
 {
@@ -23,6 +25,9 @@ namespace GoodNight
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<GoodNightContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("GoodNightContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +57,11 @@ namespace GoodNight
                 routes.MapSpaFallbackRoute(
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
+
+                routes.MapRoute(
+                    name: "random",
+                    template: "{GetRandomString}/{Index}",
+                    defaults: new {controller = "Register", action = "Index"});
             });
         }
     }
