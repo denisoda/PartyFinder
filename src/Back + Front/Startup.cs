@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using GoodNight.Models;
 
 namespace GoodNight
 {
@@ -26,8 +25,6 @@ namespace GoodNight
         {
             services.AddMvc();
 
-            services.AddDbContext<GoodNightContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("GoodNightContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
