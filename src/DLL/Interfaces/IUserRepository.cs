@@ -1,0 +1,15 @@
+using System.Collections;
+using DLL.Models;
+
+namespace DLL.Interfaces
+{
+    public interface IUserRepository
+    {
+         IEnumerable GetAllUsers();
+         User GetUserById(int id);
+         void InsertUser(User user);
+         void UpdateUser(User user);
+         void DeleteUser(User user);
+         void Save();
+    }
+}
