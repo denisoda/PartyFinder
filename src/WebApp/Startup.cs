@@ -45,6 +45,7 @@ namespace WebApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseHttpsRedirection();
 
             app.UseMvc(routes =>
             {
