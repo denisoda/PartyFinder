@@ -1,11 +1,12 @@
 using System.Collections;
 using DLL.Models;
+using System.Collections.Generic;
 
 namespace DLL.Interfaces
 {
     public interface IUserRepository
     {
-         IEnumerable GetAllUsers();
+         IEnumerable<User> GetAllUsers();
          User GetUserById(int id);
          void InsertUser(User user);
          void UpdateUser(User user);
