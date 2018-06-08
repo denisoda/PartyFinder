@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using DLL.Models;
 using MySql.Data.EntityFrameworkCore;
+using System.Data;
 
 namespace DLL.Contextes
 {
@@ -8,7 +9,7 @@ namespace DLL.Contextes
     {
         public UserContex()
         {
-
+            this.Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
