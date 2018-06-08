@@ -12,6 +12,7 @@ namespace DLL.Repository
     public class UserRepository : IUserRepository, IDisposable
     {
         UserContex _userContex;
+        private bool disposed = false;
         UserRepository(UserContex UserContex)
         {
             this._userContex = UserContex;
@@ -42,9 +43,22 @@ namespace DLL.Repository
             _userContex.SaveChanges();
         }
 
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    _userContex.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
         public void Dispose()
         {
-            _userContex.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }
