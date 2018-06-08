@@ -1,10 +1,17 @@
 using DLL.Interfaces;
 using System;
+using DLL.Contextes;
 
 namespace DLL.Repository
 {
     public class UserRepository : IUserRepository, IDisposable
     {
+        UserContex _userContex;
+        UserRepository(UserContex UserContex)
+        {
+            this._userContex = UserContex;
+        }
+
         public IEnumerable GetAllUsers()
         {
         
@@ -26,6 +33,11 @@ namespace DLL.Repository
             
         }
         public void Save()
+        {
+
+        }
+
+        public void Dispose()
         {
 
         }
