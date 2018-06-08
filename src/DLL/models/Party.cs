@@ -11,6 +11,8 @@ namespace DLL.Models
         public DateTime TimeStart {get; set;}
         public DateTime TimeEnd {get; set;}
         public string Description {get; set;}
+        public decimal LocationX {get; set;}
+        public decimal LocationY {get; set;}
         public ICollection<Rewiew> Rewiew {get; set;}
         public ICollection<User> Partisipants {get; set;}
     }
