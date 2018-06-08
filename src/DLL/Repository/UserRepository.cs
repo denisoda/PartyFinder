@@ -16,6 +16,7 @@ namespace DLL.Repository
         UserRepository(UserContex UserContex)
         {
             this._userContex = UserContex;
+            _userContex.Database.EnsureCreatedAsync();
         }
 
         public IEnumerable <User> GetAllUsers()
